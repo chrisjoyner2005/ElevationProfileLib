@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="80">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="f1" displayName="src" projectFiles="true">
+      <logicalFolder name="f3" displayName="core" projectFiles="true">
+        <itemPath>src/core/ElevationMap.cpp</itemPath>
+        <itemPath>src/core/ElevationMap.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="enumerations" projectFiles="true">
+        <itemPath>src/enumerations/Enums.cpp</itemPath>
+        <itemPath>src/enumerations/Enums.h</itemPath>
+        <itemPath>/Users/marvin_smith1/Documents/ElevationProfileLib/src/enumerations/Quaternion.cpp</itemPath>
+        <itemPath>/Users/marvin_smith1/Documents/ElevationProfileLib/src/enumerations/Quaternion.h</itemPath>
+        <itemPath>/Users/marvin_smith1/Documents/ElevationProfileLib/src/enumerations/Vector.cpp</itemPath>
+        <itemPath>/Users/marvin_smith1/Documents/ElevationProfileLib/src/enumerations/Vector.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="gdal" projectFiles="true">
+        <itemPath>/Users/marvin_smith1/Documents/ElevationProfileLib/src/gdal/DTEM_Image.cpp</itemPath>
+        <itemPath>/Users/marvin_smith1/Documents/ElevationProfileLib/src/gdal/DTEM_Image.h</itemPath>
+        <itemPath>src/gdal/GDAL_Utilities.cpp</itemPath>
+        <itemPath>src/gdal/GDAL_Utilities.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="math" projectFiles="true">
+        <itemPath>/Users/marvin_smith1/Documents/ElevationProfileLib/src/math/CoordinateUtils.cpp</itemPath>
+        <itemPath>/Users/marvin_smith1/Documents/ElevationProfileLib/src/math/CoordinateUtils.h</itemPath>
+        <itemPath>/Users/marvin_smith1/Documents/ElevationProfileLib/src/math/Interpolation.cpp</itemPath>
+        <itemPath>/Users/marvin_smith1/Documents/ElevationProfileLib/src/math/Interpolation.h</itemPath>
+      </logicalFolder>
+      <itemPath>src/main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <incDir>
+            <pElem>/usr/local/include</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <commandLine>-L/usr/local/lib -lgdal</commandLine>
+        </linkerTool>
+      </compileType>
+      <folder path="TestFiles/f1">
+        <cTool>
+          <incDir>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+          </incDir>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f1</output>
+          <linkerLibItems>
+            <linkerLibStdlibItem>CppUnit</linkerLibStdlibItem>
+            <linkerLibStdlibItem>CppUnit</linkerLibStdlibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>/usr/local/include</pElem>
+          </incDir>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <commandLine>-L/usr/local/lib -lgdal</commandLine>
+        </linkerTool>
+      </compileType>
+    </conf>
+  </confs>
+</configurationDescriptor>
