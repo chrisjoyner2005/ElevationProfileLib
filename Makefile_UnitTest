@@ -1,0 +1,16 @@
+
+
+BUILD=build
+
+SOURCES = src/unit_test.cpp
+
+HEADERS = 
+
+OBJECTS = $(BUILD)/unit_test.o
+
+unit_test:	$(OBJECTS)
+	g++ $(OBJECTS) -o unit_test
+
+$(BUILD)/unit_test.o: src/unit_test.cpp $(HEADERS)
+	g++ src/unit_test.cpp -c -o $(BUILD)/unit_test.o
+
