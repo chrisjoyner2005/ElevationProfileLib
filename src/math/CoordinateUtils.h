@@ -18,6 +18,8 @@ public:
     static vec Geodetic2Vector( const GeoDDCoordinate& coord );
     static GeoDDCoordinate Vector2Geodetic( const vec& coord );
     
+    static double norm( GeoDDCoordinate const& pa, GeoDDCoordinate const& pb );
+    
 private:
 
 };

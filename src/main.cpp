@@ -37,7 +37,7 @@ int main(int argc, char** argv) {
     GeoDDCoordinate a01 = CoordinateUtils::Vector2Geodetic(pP1);
     GeoDDCoordinate a02 = CoordinateUtils::Vector2Geodetic(pP2);
     
-    vector<GeoDDCoordinate> inter = Interpolation::computeIntermediateCoordinates(p1, p2, 1);
+    vector<GeoDDCoordinate> inter = Interpolation::computeIntermediateCoordinates(p1, p2, 3);
     cout << endl << endl;
     cout << p1.first << ", " << p1.second << endl;
     for(size_t i=0; i<inter.size(); i++)

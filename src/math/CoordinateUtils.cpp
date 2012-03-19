@@ -21,7 +21,14 @@ GeoDDCoordinate CoordinateUtils::Vector2Geodetic( const vec& axis ){
     double r = axis.mag();
     
     GeoDDCoordinate pt;
-    pt.first  = atan2(axis[2], axis[0])*180/M_PI;
-    pt.second = acos(axis[1])*180/M_PI;
+    pt.first  = asin(axis[1])*180/M_PI;
+    pt.second = atan2(axis[0], axis[2])*180/M_PI;
     return pt;
+}
+
+
+double CoordinateUtils::norm( GeoDDCoordinate const& pa, GeoDDCoordinate const& pb ){
+    
+    return sqrt(( pa.first  - pb.first  )*( pa.first  - pb.first  ) - 
+                ( pa.second - pb.second )*( pa.second - pb.second ));
 }

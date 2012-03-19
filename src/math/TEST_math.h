@@ -15,6 +15,7 @@
 using namespace std;
 
 Status TEST_Geodetic2Vector( );
+Status TEST_Vector2Geodetic( );
 
 void run_math_tests( Logger& log );
 
