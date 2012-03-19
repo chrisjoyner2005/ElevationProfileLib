@@ -1,16 +1,41 @@
 
-
 BUILD=build
 
-SOURCES = src/unit_test.cpp
+SOURCES = src/unit_test.cpp \
+			 src/math/TEST_math.cpp \
+			 src/test/Logger.cpp \
+			 src/test/Color.cpp
 
-HEADERS = 
+HEADERS = src/math/TEST_math.h \
+			 src/test/Logger.h \
+			 src/test/Color.h
 
-OBJECTS = $(BUILD)/unit_test.o
+OBJECTS = $(BUILD)/unit_test.o \
+		    $(BUILD)/TEST_math.o \
+			 $(BUILD)/Logger.o \
+			 $(BUILD)/Color.o
+
+NOBUILD = src/math/CoordinateUtils.cpp
 
 unit_test:	$(OBJECTS)
-	g++ $(OBJECTS) -o unit_test
+	g++ $(OBJECTS) $(NOBUILD) -o unit_test
 
 $(BUILD)/unit_test.o: src/unit_test.cpp $(HEADERS)
 	g++ src/unit_test.cpp -c -o $(BUILD)/unit_test.o
 
+$(BUILD)/TEST_math.o: src/math/TEST_math.cpp $(HEADERS)
+	g++ src/math/TEST_math.cpp -c -o $(BUILD)/TEST_math.o
+	
+$(BUILD)/Logger.o: src/test/Logger.cpp $(HEADERS)
+	g++ src/test/Logger.cpp -c -o $(BUILD)/Logger.o
+
+$(BUILD)/Color.o: src/test/Color.cpp $(HEADERS)
+	g++ src/test/Color.cpp -c -o $(BUILD)/Color.o
+
+
+#######################################################
+
+clean: 
+	rm unit_test
+
+.PHONY: unit_test $(OBJECTS)

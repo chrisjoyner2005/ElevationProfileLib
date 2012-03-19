@@ -2,3 +2,5 @@
 /build/Debug/
 /dist/Debug/
 *.hgt
+/build/Release/
+/dist/Release/

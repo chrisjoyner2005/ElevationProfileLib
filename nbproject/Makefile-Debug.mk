@@ -59,60 +59,60 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=-lcppunit -lcppunit
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/elevationprofilelib
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${TESTDIR}/TestFiles/f1
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/elevationprofilelib: ${OBJECTFILES}
-	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -L/usr/local/lib -lgdal -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/elevationprofilelib ${OBJECTFILES} ${LDLIBSOPTIONS} 
+${TESTDIR}/TestFiles/f1: ${OBJECTFILES}
+	${MKDIR} -p ${TESTDIR}/TestFiles
+	${LINK.cc} -L/usr/local/lib -lgdal -o ${TESTDIR}/TestFiles/f1 ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
 ${OBJECTDIR}/src/main.o: src/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
-	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/main.o src/main.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I. -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/main.o src/main.cpp
 
 ${OBJECTDIR}/src/core/ElevationMap.o: src/core/ElevationMap.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/core
 	${RM} $@.d
-	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/core/ElevationMap.o src/core/ElevationMap.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I. -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/core/ElevationMap.o src/core/ElevationMap.cpp
 
 ${OBJECTDIR}/_ext/597559957/Interpolation.o: /Users/marvin_smith1/Documents/ElevationProfileLib/src/math/Interpolation.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/597559957
 	${RM} $@.d
-	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/597559957/Interpolation.o /Users/marvin_smith1/Documents/ElevationProfileLib/src/math/Interpolation.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I. -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/597559957/Interpolation.o /Users/marvin_smith1/Documents/ElevationProfileLib/src/math/Interpolation.cpp
 
 ${OBJECTDIR}/_ext/1088103/Quaternion.o: /Users/marvin_smith1/Documents/ElevationProfileLib/src/enumerations/Quaternion.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1088103
 	${RM} $@.d
-	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1088103/Quaternion.o /Users/marvin_smith1/Documents/ElevationProfileLib/src/enumerations/Quaternion.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I. -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1088103/Quaternion.o /Users/marvin_smith1/Documents/ElevationProfileLib/src/enumerations/Quaternion.cpp
 
 ${OBJECTDIR}/_ext/1088103/Vector.o: /Users/marvin_smith1/Documents/ElevationProfileLib/src/enumerations/Vector.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1088103
 	${RM} $@.d
-	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1088103/Vector.o /Users/marvin_smith1/Documents/ElevationProfileLib/src/enumerations/Vector.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I. -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1088103/Vector.o /Users/marvin_smith1/Documents/ElevationProfileLib/src/enumerations/Vector.cpp
 
 ${OBJECTDIR}/src/gdal/GDAL_Utilities.o: src/gdal/GDAL_Utilities.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/gdal
 	${RM} $@.d
-	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/gdal/GDAL_Utilities.o src/gdal/GDAL_Utilities.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I. -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/gdal/GDAL_Utilities.o src/gdal/GDAL_Utilities.cpp
 
 ${OBJECTDIR}/_ext/597559957/CoordinateUtils.o: /Users/marvin_smith1/Documents/ElevationProfileLib/src/math/CoordinateUtils.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/597559957
 	${RM} $@.d
-	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/597559957/CoordinateUtils.o /Users/marvin_smith1/Documents/ElevationProfileLib/src/math/CoordinateUtils.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I. -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/597559957/CoordinateUtils.o /Users/marvin_smith1/Documents/ElevationProfileLib/src/math/CoordinateUtils.cpp
 
 ${OBJECTDIR}/src/enumerations/Enums.o: src/enumerations/Enums.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/enumerations
 	${RM} $@.d
-	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/enumerations/Enums.o src/enumerations/Enums.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I. -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/enumerations/Enums.o src/enumerations/Enums.cpp
 
 ${OBJECTDIR}/_ext/597383509/DTEM_Image.o: /Users/marvin_smith1/Documents/ElevationProfileLib/src/gdal/DTEM_Image.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/597383509
 	${RM} $@.d
-	$(COMPILE.cc) -g -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/597383509/DTEM_Image.o /Users/marvin_smith1/Documents/ElevationProfileLib/src/gdal/DTEM_Image.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I. -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/597383509/DTEM_Image.o /Users/marvin_smith1/Documents/ElevationProfileLib/src/gdal/DTEM_Image.cpp
 
 # Subprojects
 .build-subprojects:
@@ -120,7 +120,7 @@ ${OBJECTDIR}/_ext/597383509/DTEM_Image.o: /Users/marvin_smith1/Documents/Elevati
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/elevationprofilelib
+	${RM} ${TESTDIR}/TestFiles/f1
 
 # Subprojects
 .clean-subprojects:

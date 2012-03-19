@@ -18,6 +18,8 @@ vec Interpolation::SLERP( vec const& p1, vec const& p2, const double& t){
 Quaternion Interpolation::SLERP( Quaternion const& p1, Quaternion const& p2, const double& t){
     
     double omega = acos(dot(p1.imag(),p2.imag()));
+    
+    
     return (sin((1-t)*omega)/sin(omega))*p1 + (sin(t*omega)/sin(omega))*p2;
 }
 
@@ -35,9 +37,15 @@ vector<GeoDDCoordinate> Interpolation::computeIntermediateCoordinates(
     double sum = t;
     vec P1 = CoordinateUtils::Geodetic2Vector(p1);
     vec P2 = CoordinateUtils::Geodetic2Vector(p2);
+    cout << "t: " << t << " => " << P1 << ", " << P2 << endl;
     
     for(size_t i=0; i<nPoints; i++){
-        cout << "t: " << t << " => " << P1 << ", " << P2 << endl;
+        
+        vec pp = SLERP(P1, P2, sum);
+        cout << "p1 : " << P1 << endl;
+        cout << "SUM: " << sum << "  -> PP: " << pp << endl;
+        cout << "p2 : " << P2 << endl;
+        
         outputList.push_back( CoordinateUtils::Vector2Geodetic(SLERP(P1, P2, sum)));
         sum += t;
     }

@@ -8,6 +8,7 @@
 #ifndef VECTOR_H
 #define	VECTOR_H
 
+#include <math.h>
 #include <iostream>
 #include <vector>
 
@@ -158,6 +159,16 @@ Vector<TP,N> operator/ ( const Vector<TP,N>& vA, const TP& s ){
     for(size_t i=0; i<N; i++)
         outVec[i] = vA[i]/s;
     return outVec;
+}
+
+template<typename TP, int N>
+double norm( const Vector<TP,N>& vA, const Vector<TP,N>& vB){
+
+   double sum = 0;
+   for(size_t i=0; i<N; i++)
+      sum += (vA[i]-vB[i])*(vA[i]*vB[i]);
+   
+   return sqrt((double)sum);
 }
 
 #endif	/* VECTOR_H */
