@@ -37,14 +37,10 @@ vector<GeoDDCoordinate> Interpolation::computeIntermediateCoordinates(
     double sum = t;
     vec P1 = CoordinateUtils::Geodetic2Vector(p1);
     vec P2 = CoordinateUtils::Geodetic2Vector(p2);
-    cout << "t: " << t << " => " << P1 << ", " << P2 << endl;
     
     for(size_t i=0; i<nPoints; i++){
         
         vec pp = SLERP(P1, P2, sum);
-        cout << "p1 : " << P1 << endl;
-        cout << "SUM: " << sum << "  -> PP: " << pp << endl;
-        cout << "p2 : " << P2 << endl;
         
         outputList.push_back( CoordinateUtils::Vector2Geodetic(SLERP(P1, P2, sum)));
         sum += t;

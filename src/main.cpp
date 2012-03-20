@@ -5,6 +5,7 @@
  * Created on March 14, 2012, 8:49 AM
  */
 
+#include <fstream>
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -24,33 +25,23 @@ using namespace std;
 int main(int argc, char** argv) {
 
     vector<GeoDDCoordinate> inputPoints;
-    inputPoints.push_back(GeoDDCoordinate(39.320753,-119.232233));
-    inputPoints.push_back(GeoDDCoordinate(39.540575,-119.8207));
-    inputPoints.push_back(GeoDDCoordinate(39.160833, -119.753889));
-    
-    GeoDDCoordinate p1(  0,   0);
-    GeoDDCoordinate p2( 45,  45);
-    
-    vec pP1 = CoordinateUtils::Geodetic2Vector(p1);
-    vec pP2 = CoordinateUtils::Geodetic2Vector(p2);
-    
-    GeoDDCoordinate a01 = CoordinateUtils::Vector2Geodetic(pP1);
-    GeoDDCoordinate a02 = CoordinateUtils::Vector2Geodetic(pP2);
-    
-    vector<GeoDDCoordinate> inter = Interpolation::computeIntermediateCoordinates(p1, p2, 3);
-    cout << endl << endl;
-    cout << p1.first << ", " << p1.second << endl;
-    for(size_t i=0; i<inter.size(); i++)
-        cout << inter[i].first << ", " << inter[i].second << endl;
-    cout << p2.first << ", " << p2.second << endl;
-    
-    //vector<double> elevationProfile = ElevationMap::computeElevationProfile( inputPoints);
-    
-    //cout << "elevation: " << GDAL_Utilities::singlePointElevation(GeoDDCoordinate(39.320753,-119.232233)) << endl;
-    
-    //cout << "distance: " << setprecision(9) << GDAL_Utilities::surfaceDistance(GeoDDCoordinate(39.320753,-119.232233),GeoDDCoordinate(39.540575,119.8207));
+    inputPoints.push_back(GeoDDCoordinate(39.320753, -119.232233));
+    //inputPoints.push_back(GeoDDCoordinate(39.527222, -119.821944));
+    inputPoints.push_back(GeoDDCoordinate(39.320753, -119.264933));
     
     
+    vector<ProfileTuple> results = ElevationMap::computeElevationProfile(inputPoints, 200);
+    
+   // cout << endl << endl << "Result" << endl;
+   ///for(size_t i=0; i<results.size(); i++)
+   //    cout << results[i].fst().first << ", " << results[i].fst().second << " -> " << results[i].snd() << ", " << results[i].trd() << ", " << results[i].fth() << endl;
+   
+    ofstream fout;
+    fout.open("RESULTS.csv");
+    for(size_t i=0; i<results.size(); i++){
+        fout << results[i].trd() << ", " << results[i].fth() << endl;
+    }
+    fout.close();
     
     return 0;
 }

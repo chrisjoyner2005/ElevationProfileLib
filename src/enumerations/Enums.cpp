@@ -6,3 +6,11 @@
  */
 
 #include "Enums.h"
+
+bool ProfileTupleFilenameSort::operator()(const ProfileTuple& a, const ProfileTuple& b){
+    return (a.snd() < b.snd());
+}
+
+bool ProfileTupleDistanceSort::operator()(const ProfileTuple& a, const ProfileTuple& b){
+    return (a.trd() < b.trd());
+}

@@ -42,7 +42,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/gdal/GDAL_Utilities.o \
 	${OBJECTDIR}/_ext/597559957/CoordinateUtils.o \
 	${OBJECTDIR}/src/enumerations/Enums.o \
-	${OBJECTDIR}/_ext/597383509/DTEM_Image.o
+	${OBJECTDIR}/_ext/597383509/DTEM_Image.o \
+	${OBJECTDIR}/_ext/597275436/Tuple.o
 
 
 # C Compiler Flags
@@ -113,6 +114,11 @@ ${OBJECTDIR}/_ext/597383509/DTEM_Image.o: /Users/marvin_smith1/Documents/Elevati
 	${MKDIR} -p ${OBJECTDIR}/_ext/597383509
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/597383509/DTEM_Image.o /Users/marvin_smith1/Documents/ElevationProfileLib/src/gdal/DTEM_Image.cpp
+
+${OBJECTDIR}/_ext/597275436/Tuple.o: /Users/marvin_smith1/Documents/ElevationProfileLib/src/core/Tuple.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/597275436
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/597275436/Tuple.o /Users/marvin_smith1/Documents/ElevationProfileLib/src/core/Tuple.cpp
 
 # Subprojects
 .build-subprojects:

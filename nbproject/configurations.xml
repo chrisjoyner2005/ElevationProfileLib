@@ -11,6 +11,8 @@
         <itemPath>src/enumerations/Enums.h</itemPath>
         <itemPath>/Users/marvin_smith1/Documents/ElevationProfileLib/src/enumerations/Quaternion.cpp</itemPath>
         <itemPath>/Users/marvin_smith1/Documents/ElevationProfileLib/src/enumerations/Quaternion.h</itemPath>
+        <itemPath>/Users/marvin_smith1/Documents/ElevationProfileLib/src/core/Tuple.cpp</itemPath>
+        <itemPath>/Users/marvin_smith1/Documents/ElevationProfileLib/src/core/Tuple.h</itemPath>
         <itemPath>/Users/marvin_smith1/Documents/ElevationProfileLib/src/enumerations/Vector.cpp</itemPath>
         <itemPath>/Users/marvin_smith1/Documents/ElevationProfileLib/src/enumerations/Vector.h</itemPath>
       </logicalFolder>
@@ -48,16 +50,6 @@
         <compilerSet>default</compilerSet>
       </toolsSet>
       <compileType>
-        <ccTool>
-          <incDir>
-            <pElem>/usr/local/include</pElem>
-          </incDir>
-        </ccTool>
-        <linkerTool>
-          <commandLine>-L/usr/local/lib -lgdal</commandLine>
-        </linkerTool>
-      </compileType>
-      <folder path="TestFiles/f1">
         <cTool>
           <incDir>
             <pElem>.</pElem>
@@ -66,6 +58,7 @@
         </cTool>
         <ccTool>
           <incDir>
+            <pElem>/usr/local/include</pElem>
             <pElem>.</pElem>
             <pElem>.</pElem>
           </incDir>
@@ -76,8 +69,9 @@
             <linkerLibStdlibItem>CppUnit</linkerLibStdlibItem>
             <linkerLibStdlibItem>CppUnit</linkerLibStdlibItem>
           </linkerLibItems>
+          <commandLine>-L/usr/local/lib -lgdal</commandLine>
         </linkerTool>
-      </folder>
+      </compileType>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>

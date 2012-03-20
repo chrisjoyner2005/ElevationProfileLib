@@ -108,7 +108,6 @@ string GDAL_Utilities::computeFilename(GeoDDCoordinate const& point, const strin
     if (type == "SRTM")
         filename += ".hgt";
 
-    cout << "FILENAME: " << filename << endl;
     return filename;
 }
 

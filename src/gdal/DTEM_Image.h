@@ -25,6 +25,8 @@ public:
     
     double getElevation( const GeoDDCoordinate& pnt );
     
+    string getFilename()const;
+    
 private:
     
     void remove_holes();

@@ -84,6 +84,7 @@ void DTEM_Image::remove_holes() {
 
     //iterate over image, taking the median of the window
     double sum;
+    int cnt;
     for (int i = 0; i < nXSize; i++)
         for (int j = 0; j < nYSize; j++) {
 
@@ -92,11 +93,16 @@ void DTEM_Image::remove_holes() {
                 
                 //iterate over sub window, taking average of valid windows
                 sum = 0;
+                cnt = 0;
                 for (int x = i - 2; x <= i + 2; x++)
                     for (int y = j - 2; y <= j + 2; y++) 
                         if( x > 0 && y > 0 && x < nXSize && y < nYSize && elevationProfile[x][y] > -10000) {
-                            sum = max( sum, elevationProfile[x][y]);
+                            sum += elevationProfile[x][y];
+                            cnt++;
                         }
+                if(cnt < 1 )
+                    cnt = 1;
+                sum = sum/cnt;
                     
                 elevationProfile[i][j] = sum;
             }
@@ -106,3 +112,6 @@ void DTEM_Image::remove_holes() {
 
 }
 
+string DTEM_Image::getFilename() const{
+    return filename;
+}
